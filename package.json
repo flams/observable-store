@@ -1,6 +1,6 @@
 {
   "name": "observable-store",
-  "description": "An observable data store with dirty checking",
+  "description": "An observable data store with dirty checking and computed properties",
   "version": "0.0.1",
   "homepage": "https://github.com/flams/observable-store",
   "licenses": [
@@ -20,7 +20,8 @@
     "datastore",
     "observable",
     "dirty",
-    "checking"
+    "checking",
+    "computed"
   ],
   "repository": {
     "type": "git",
