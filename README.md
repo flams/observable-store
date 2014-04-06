@@ -10,9 +10,11 @@
 	- [Watch changes on specific property/item](#watch-changes-on-specific-propertyitem)
 	- [Watch changes on generic events such as added/updated/deleted](#watch-changes-on-generic-events-such-as-addedupdateddeleted)
 	- [Unwatch changes](#unwatch-changes)
-	- [Using an array's native mutative methods to alter the data](#using-an-arrays-native-mutative-methods-to-alter-the-data)
+	- [Using an array's native mutative methods](#using-an-arrays-native-mutative-methods)
 	- [Using an array's accessor methods.](#using-an-arrays-accessor-methods)
 	- [Computed properties](#computed-properties)
+	- [Store reset](#store-reset)
+	- [Store utilities](#store-utilities)
 - [LICENSE](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
