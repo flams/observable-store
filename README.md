@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [Observable store](#observable-store)
+- [Installation](#installation)
+- [How to use](#how-to-use)
+	- [Initialization](#initialization)
+	- [Standard CRUD methods:](#standard-crud-methods)
+	- [Watch changes on specific property/item](#watch-changes-on-specific-propertyitem)
+	- [Watch changes on generic events such as added/updated/deleted](#watch-changes-on-generic-events-such-as-addedupdateddeleted)
+	- [Unwatch changes](#unwatch-changes)
+- [LICENSE](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 Observable store
 =============
 
@@ -19,14 +35,7 @@ Require observable-store:
 var Store = require("observable-store");
 ```
 
-###Documented:
- - Initialization
- - get/set/del/update
- - watch changes on specific items/properties
- - watch generic changes on arrays/objects such as updated/deleted/added
- - unwatch changes
- -
-
+## Initialization
 It can be initialized with or without data. When initialized with data, a shallow clone is done first.
 
 ```js
@@ -46,8 +55,7 @@ var store = new Store({
   property3: "data"
 });
 ```
-
-It has the standard CRUD methods:
+## Standard CRUD methods:
 
 ```js
 store.get(0); // "array";
@@ -63,6 +71,7 @@ store.del("property1"); // remove the property from the array
 store.delAll(["property1", "property2"]);
 ```
 
+## Watch changes on specific property/item
 The point of proxying accessing objects/arrays is that it can trigger events on what's changing. Examples of watching changes on specific properties or items:
 
 ```js
@@ -95,6 +104,8 @@ var handle = store.watchValue(3, function onItemUpdated(newValue, action, oldVal
 store.set(3, "new value");
 ```
 
+## Watch changes on generic events such as added/updated/deleted
+
 You can also watch generic events on the whole array/object to know when a new item or property is added, updated or deleted. The following examples are for an object-based store but work the same way with arrays.
 
 ```js
@@ -125,6 +136,8 @@ var handle = store.watch("deleted", function onPropertyDeleted(propertyName, new
 
 store.del("newProperty");
 ```
+
+## Unwatch changes
 
 To unwatch, pass the `handle` to `unwatch` or `unwatchValue`
 
