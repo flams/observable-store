@@ -141,11 +141,13 @@ module.exports = function StoreConstructor($data) {
      * @returns true if successfully deleted.
      */
     this.del = function del(name) {
+        var previous;
         if (this.has(name)) {
             if (!this.alter("splice", name, 1)) {
+                previous = _data[name];
                 delete _data[name];
-                _storeObservable.notify("deleted", name);
-                _valueObservable.notify(name, _data[name], "deleted");
+                _storeObservable.notify("deleted", name, undefined, previous);
+                _valueObservable.notify(name, _data[name], "deleted", previous);
             }
             return true;
         } else {
