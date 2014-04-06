@@ -55,7 +55,7 @@ var store = new Store({
   property3: "data"
 });
 ```
-## Standard CRUD methods:
+## Standard CRUD methods
 
 ```js
 store.get(0); // "array";
@@ -145,6 +145,72 @@ To unwatch, pass the `handle` to `unwatch` or `unwatchValue`
 store.unwatch(handle); // for handles created by watch
 store.unwatchValue(handle); // for handles created by watchValue
 ```
+
+## Using an array's native mutative methods to alter the data
+
+The data store has a method for accessing the array's native mutative methods to mutate the data store. When the changes have been made, the data store does a dirty check to figure out the changes and publish events accordingly. This example would also work with other methods than `splice` like `pop`, `push`, `shift`, `unshift`, `sort`, `reverse`.
+
+```js
+// Let's remove item 0 and 1 from this store
+var store = new Store([0, 1, 2, 3]);
+
+store.watch("updated", function () {
+    // this will be triggered two times:
+    // The first item will be updated to 2
+    // The second item will be updated to 3
+});
+
+store.watch("deleted", function () {
+    // This will be triggered two times:
+    // The first 3rd item will be deleted
+    // The fourth item will be deleted
+});
+
+// For array-based stores
+store.alter("splice", 0, 1); // returns [0, 1];
+```
+
+## Using an array's accessor methods.
+
+While `alter` would work in these cases too, using `proxy` instead doesn't trigger the dirty checking, so `proxy` is as fast as the native method itself. Other accessor methods are: `concat`, `join`, `slice`, `toString`, `toLocalString`, `indexOf`, `lastIndexOf`.
+
+```js
+var store = new Store([0, 1, 2, 3]);
+
+store.proxy("join", "|"); // returns "0|1|2|3";
+```
+
+## Computed properties
+
+The data store can also create computed properties out of other properties:
+
+```js
+var store = new Store({
+	"firstname": "John",
+	"lastname": "Doe"
+});
+
+store.compute("name", ["firstname", "lastname"], function (firstname, lastname) {
+	return this.get(firstname) + " " + this.get(lastname);
+}, store /* optional */);
+
+store.get("name"); // "John Doe"
+
+store.isCompute("name"); // true
+
+store.removeComputed("name");
+```
+
+A computed property can also be watched upon:
+
+```js
+// will be triggered if firstname or lastname changes
+store.watchValue("name", function () { ... });
+
+store.set("firstname", "Jim");
+```
+
+
 
 LICENSE
 =======

@@ -344,6 +344,8 @@ module.exports = function StoreConstructor($data) {
                 this.unwatchValue(handle);
             }, this);
             this.del(name);
+
+            delete _computed[name];
             return true;
         } else {
             return false;
