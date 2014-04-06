@@ -149,7 +149,7 @@ store.unwatch(handle); // for handles created by watch
 store.unwatchValue(handle); // for handles created by watchValue
 ```
 
-## Using an array's native mutative methods to alter the data
+## Using an array's native mutative methods
 
 The data store has a method for accessing the array's native mutative methods to mutate the data store. When the changes have been made, the data store does a dirty check to figure out the changes and publish events accordingly. This example would also work with other methods than `splice` like `pop`, `push`, `shift`, `unshift`, `sort`, `reverse`.
 
@@ -213,6 +213,27 @@ store.watchValue("name", function () { ... });
 store.set("firstname", "Jim");
 ```
 
+## Store reset
+
+The store can be reused and its data reset. When calling reset, the store will do a diff with the previous data and publish the relevant events.
+
+```js
+// Will set the internal data and publish events for everything that has been changed/updated/added
+store.reset({ ... });
+```
+
+## Store utilities
+
+```js
+store.toJSON(); // will serialize the data
+
+store.dump(); // will return the internal structure
+
+store.loop(function (value, key, object) {
+	// do something with each value/key
+	// object === store.dump();
+}, scope /* optional */);
+```
 
 
 LICENSE
