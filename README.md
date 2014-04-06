@@ -1,7 +1,7 @@
 Observable store
 =============
 
-An observable data store with dirty checking
+An observable data store with dirty checking and computed properties
 
 Installation
 ============
