@@ -161,7 +161,7 @@ module.exports = function StoreConstructor($data) {
      * @returns false if param is not an array.
      */
     this.delAll = function delAll(indexes) {
-        if (indexes instanceof Array) {
+        if (Array.isArray(indexes)) {
             // Indexes must be removed from the greatest to the lowest
             // To avoid trying to remove indexes that don't exist.
             // i.e: given [0, 1, 2], remove 1, then 2, 2 doesn't exist anymore
@@ -288,7 +288,7 @@ module.exports = function StoreConstructor($data) {
      * @returns {Boolean}
      */
     this.reset = function reset(data) {
-        if (data instanceof Object) {
+        if (typeof data == "object") {
             var previousData = clone(_data);
             _data = clone(data) || {};
             _notifyDiffs(previousData);
