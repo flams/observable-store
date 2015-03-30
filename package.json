@@ -38,12 +38,12 @@
     "jasmine-node": "~1.14.3"
   },
   "dependencies": {
-    "watch-notify": "0.0.2",
-    "shallow-diff": "0.0.2",
-    "shallow-copy": "0.0.1",
     "compare-numbers": "0.0.1",
+    "nested-property": "0.0.6",
     "object-count": "0.0.1",
-    "nested-property": "0.0.1",
-    "simple-loop": "0.0.2"
+    "shallow-copy": "0.0.1",
+    "shallow-diff": "0.0.2",
+    "simple-loop": "0.0.3",
+    "watch-notify": "0.0.2"
   }
 }

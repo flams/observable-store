@@ -237,6 +237,12 @@ store.loop(function (value, key, object) {
 }, scope /* optional */);
 ```
 
+CHANGELOG
+=========
+
+###0.0.3 - wip - 29 MAR 2015
+
+* Add the possibility to filter an array Store. Toggling filters will trigger the appropriate events.
 
 LICENSE
 =======
