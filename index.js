@@ -282,10 +282,6 @@ module.exports = function StoreConstructor($data) {
         simpleLoop(_data, func, scope);
     };
 
-    this.filter = function filter() {
-
-    };
-
     /**
      * Reset all data and get notifications on changes
      * @param {Arra/Object} data the new data
