@@ -1,7 +1,7 @@
 {
   "name": "observable-store",
   "description": "An observable data store with dirty checking and computed properties",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/flams/observable-store",
   "licenses": [
     {

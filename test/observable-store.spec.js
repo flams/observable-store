@@ -80,7 +80,7 @@ describe("Store", function () {
 
         });
 
-        it("should allow for returning a JSON version of the store", function () {
+        it("should return a JSON version of the store", function () {
             var values = {
                     key1: "value1",
                     key2: "value2"
@@ -93,7 +93,7 @@ describe("Store", function () {
             expect(Object.getOwnPropertyNames(json).length).toBe(2);
         });
 
-        it("should allow for deleting multiple indexes at once", function () {
+        it("should delete multiple indexes at once", function () {
             // I'd like to keep [2, 7, 10] in the end
             var indexes = [0, 9, 12, 4, 5, 6, 8, 1, 11, 3];
             store.reset([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
@@ -226,8 +226,7 @@ describe("Store", function () {
     });
 
     describe("value observable", function () {
-        var store = null,
-            storeObservable = null;
+        var store = null;
 
         beforeEach(function () {
             store = new Store();
@@ -481,6 +480,7 @@ describe("Store", function () {
                 //  call.args[0] should equal 2 or 3
                 expect(call.args[0] >= 2).toBe(true);
                 expect(call.args[1]).toBeUndefined();
+                expect(call.args[2] >= 2).toBe(true);
             });
         });
 

@@ -237,6 +237,12 @@ store.loop(function (value, key, object) {
 }, scope /* optional */);
 ```
 
+CHANGELOG
+=========
+
+### 0.0.4 5 APR 2015
+
+* Publish old value too when altering the store
 
 LICENSE
 =======
