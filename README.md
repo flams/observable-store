@@ -240,7 +240,11 @@ store.loop(function (value, key, object) {
 CHANGELOG
 =========
 
-### 0.0.4 5 APR 2015
+### 0.0.5 - 7 APR 2015
+
+* Update to watch-notify 0.0.3
+
+#### 0.0.4 - 5 APR 2015
 
 * Publish old value too when altering the store
 
